@@ -1,3 +1,0 @@
-#pragma once
-Ball ball;
-Player player;
