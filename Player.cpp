@@ -1,6 +1,10 @@
 #include "Player.h"
 #include <GL/glut.h>
+<<<<<<< HEAD
 //test
+=======
+//also test
+>>>>>>> f5dadfd551b630d4a5ffff802c3fb96eeba01de3
 Player::Player():width(100),height(10),x(10),y(460)
 {}
 void Player::drawPlayer(int visible)
