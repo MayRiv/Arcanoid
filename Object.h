@@ -4,17 +4,19 @@ class Object
  public:
   Object(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _leftLowX,int _leftLowY,int _rightLowX,int _rightLowY);
   void draw(int visible);
-  int getWidth(){return rightTopX-leftTopX;}
-  int getHeight(){return rightTopY-rightLowY;}
-  int getLeftTopY(){return leftTopY;}
-  int getLeftTopX(){return leftTopX;}
-  int getRightTopY(){return rightTopY;}
-  int getRightTopX(){return rightTopX;}
-  int getLeftLowY(){return leftLowY;}
-  int getLeftLowX(){return leftLowX;}
-  int getRightLowY(){return rightLowY;}
-  int getRightLowX(){return rightLowX;}
+  //int getWidth(){return }
+  //int getHeight(){return rightTopY-rightLowY;}
+  int getLeftTopY(){return points[0].y;}
+  int getLeftTopX(){return points[0].x;}
+  int getRightTopY(){return points[1].y;}
+  int getRightTopX(){return points[1].x;}
+  int getLeftLowY(){return  points[2].y;}
+  int getLeftLowX(){return  points[2].x;}
+  int getRightLowY(){return points[3].y;}
+  int getRightLowX(){return points[3].x;}
  protected:
-  int leftTopY,rightTopY,leftLowY,rightLowY;
-  int leftTopX,rightTopX,leftLowX,rightLowX;
+  /* int leftTopY,rightTopY,leftLowY,rightLowY;
+     int leftTopX,rightTopX,leftLowX,rightLowX;*/
+  struct Point
+  {int x,y;} points[4];
 };

@@ -6,23 +6,8 @@
   {}*/
 void Player::move(int i)
 {  
-  if (i==1) 
-    {
-      rightTopX+=dx;
-      leftTopX+=dx;
-      rightLowX+=dx;
-      leftLowX+=dx;
-    }
-  else 
-    {
-      
-    {
-      rightTopX-=dx;
-      leftTopX-=dx;
-      rightLowX-=dx;
-      leftLowX-=dx;
-    }
-    };
+  if (i==1) for (int i=0;i<4;i++) points[i].x+=dx;    
+  else for (int i=0;i<4;i++) points[i].x-=dx;
 }
 
-Player::Player(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _leftLowX,int _leftLowY,int _rightLowX,int _rightLowY,int _dx=10):Object( _leftTopX, _leftTopY,  _rightTopX,  _rightTopY, _leftLowX, _leftLowY, _rightLowX, _rightLowY),dx(_dx){}
+Player::Player(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _leftLowX,int _leftLowY,int _rightLowX,int _rightLowY,int _dx=10):Object( _leftTopX, _leftTopY,  _rightTopX,  _rightTopY, _leftLowX, _leftLowY, _rightLowX, _rightLowY), dx(_dx){};
