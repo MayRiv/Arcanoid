@@ -7,7 +7,7 @@ class Ball
   void drawBall(int);
   void move();
  private:
-  float weight;
+  float width;
   float dx,dy;
   int x,y;
 };

@@ -1,0 +1,9 @@
+#pragma once
+class Object
+{
+ public:
+  Object();
+  Object(int leftTop,int rightTop,int leftLow,int rightLow)
+ private:
+  int leftTop,rightTop,leftLow,rightLow;
+};

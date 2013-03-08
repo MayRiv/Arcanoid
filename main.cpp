@@ -2,8 +2,9 @@
 #include "Ball.h"
 #include "Player.h"
 #include "globalVariables.h"
+#include "Object.h"
 Player player;
-Ball ball;
+Ball ball(3,3,10,3,10,10,3,10,2,2);
 const int RESX=852,RESY=480;
 void display()
 {
@@ -37,9 +38,11 @@ void keyboard(int key, int x, int y)
 void timer(int = 0)
 {
   
-  ball.drawBall(0);
+  // ball.drawBall(0);
+  ball.draw(0);
   ball.move();
-  ball.drawBall(1);
+  //ball.drawBall(1);
+  ball.draw(1);
   player.drawPlayer(1);
   display();
   glutTimerFunc(5, timer, 0);
