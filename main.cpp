@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "globalVariables.h"
 #include "Object.h"
-Player player;
+Player player(10,460,110,460,110,470,10,470,10);
 Ball ball(3,3,10,3,10,10,3,10,2,2);
 const int RESX=852,RESY=480;
 void display()
@@ -23,15 +23,15 @@ void keyboard(int key, int x, int y)
   switch(key)
     {
     case LEFT: {
-      player.drawPlayer(-1);
+      player.draw(-1);
       player.move(-1);
-      player.drawPlayer(1);
+      player.draw(1);
       break;
     }
     case RIGHT:{
-      player.drawPlayer(-1);
+      player.draw(-1);
       player.move(1);
-      player.drawPlayer(1);
+      player.draw(1);
       break;}
     }
 }
@@ -43,7 +43,7 @@ void timer(int = 0)
   ball.move();
   //ball.drawBall(1);
   ball.draw(1);
-  player.drawPlayer(1);
+  player.draw(1);
   display();
   glutTimerFunc(5, timer, 0);
 } 

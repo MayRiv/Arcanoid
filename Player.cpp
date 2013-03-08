@@ -1,28 +1,28 @@
 #include "Player.h"
 #include <GL/glut.h>
-<<<<<<< HEAD
 //test
-=======
 //also test
->>>>>>> f5dadfd551b630d4a5ffff802c3fb96eeba01de3
-Player::Player():width(100),height(10),x(10),y(460)
-{}
-void Player::drawPlayer(int visible)
-{
-  if (visible==1) glColor3f(0.0,1.0,1.0);
-  else glColor3f(0.0,0.0,0.0);
-  glBegin(GL_QUADS);
-  glVertex2f(x,y);
-  glVertex2f(x+width,y);
-  glVertex2f(x+width,y+height);
-  glVertex2f(x,y+height);
-  glEnd();
-  // glutSwapBuffers();
-}
+/*Player::Player():width(100),height(10),x(10),y(460)
+  {}*/
 void Player::move(int i)
 {  
-  int dx=10;
-  if (i==1) x+=dx;
-  else x-=dx;
+  if (i==1) 
+    {
+      rightTopX+=dx;
+      leftTopX+=dx;
+      rightLowX+=dx;
+      leftLowX+=dx;
+    }
+  else 
+    {
+      
+    {
+      rightTopX-=dx;
+      leftTopX-=dx;
+      rightLowX-=dx;
+      leftLowX-=dx;
+    }
+    };
 }
-void Player::setx(int _x){x=_x;}
+
+Player::Player(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _leftLowX,int _leftLowY,int _rightLowX,int _rightLowY,int _dx=10):Object( _leftTopX, _leftTopY,  _rightTopX,  _rightTopY, _leftLowX, _leftLowY, _rightLowX, _rightLowY),dx(_dx){}

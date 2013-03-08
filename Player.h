@@ -1,16 +1,12 @@
 #pragma once
-class Player
+#include "Object.h"
+
+
+class Player: public Object
 {
  public:
-  Player();
-  void drawPlayer(int);
+  Player(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _leftLowX,int _leftLowY,int _rightLowX,int _rightLowY,int _dx);
   void move(int);
-  void setx(int);
-  void setx(){};
-  int getx(){return x;}
-  int gety(){return y;}
-  int getWidth(){return width;}
-  int getHeight(){return height;}
- private:
-  int x,y,width,height;
+ private: 
+  int dx;
 };
