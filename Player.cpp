@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <GL/glut.h>
+//test
 Player::Player():width(100),height(10),x(10),y(460)
 {}
 void Player::drawPlayer(int visible)
