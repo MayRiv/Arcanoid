@@ -4,7 +4,13 @@
 #include "globalVariables.h"
 #include "Object.h"
 Player player(10,460,110,460,110,470,10,470,10);
-Ball ball(3,3,10,3,10,10,3,10,2,2);
+//Ball ball(30,70,40,70,40,80,30,80,2,0);
+//Ball ball(75,60,19,0,2);
+Object block(70,70,140,70,140,140,70,140);
+//Ball ball( 245,3,10,0,2);
+Ball ball(  75,160,10,0,-2);
+Object block2(260,260,350,260,350,350,260,350);
+Object block3(580,30,730,30,730,240,580,240);
 const int RESX=852,RESY=480;
 void display()
 {
@@ -38,10 +44,12 @@ void keyboard(int key, int x, int y)
 void timer(int = 0)
 {
   
-  // ball.drawBall(0);
+ 
   ball.draw(0);
   ball.move();
-  //ball.drawBall(1);
+  block.draw(1);
+  block2.draw(1);
+  block3.draw(1);
   ball.draw(1);
   player.draw(1);
   display();

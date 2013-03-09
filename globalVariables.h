@@ -7,4 +7,5 @@
 extern Ball ball;
 extern  Player player;
 extern const int RESX,RESY;
+extern Object block,block2,block3;
 #endif

@@ -14,9 +14,9 @@ class Object
   int getLeftLowX(){return  points[2].x;}
   int getRightLowY(){return points[3].y;}
   int getRightLowX(){return points[3].x;}
+  int getPointY(int i){return points[i].y;} 
+  int getPointX(int i){return points[i].x;} 
  protected:
-  /* int leftTopY,rightTopY,leftLowY,rightLowY;
-     int leftTopX,rightTopX,leftLowX,rightLowX;*/
-  struct Point
+   struct Point
   {int x,y;} points[4];
 };
