@@ -29,8 +29,8 @@ bool Ball::ApplyPhysics(Object& object)
   double minus=1;
   // for (int i=0;i<4&&!touched;i++)
   while((i<4) && (touched==false))
-    {
-    if (points[i].x>=object.getPointX(0) && points[i].x<=object.getPointX(3) &&
+    {                      //HERE MIGHT BE A PROBLEM-I HAVE A PROBLEM WITH INDEX
+    if (points[i].x>=object.getPointX(0) && points[i].x<=object.getPointX(1) &&
 	points[i].y>=object.getPointY(0) && points[i].y<=object.getPointY(3))
       {
 	touched=true;
@@ -49,29 +49,25 @@ bool Ball::ApplyPhysics(Object& object)
 	  {
 	    minus=1;
 	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	    else if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))<0) dy*=-1;
-	    else {dx*=-1; dy*=1;}
+	    else dy*=-1;
 	  }
 	if (minIndex==1) 
 	  {
 	    minus=-1;
 	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	    else if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))<0) dy*=-1;
-	    else {dx*=1; dy*=-1;}
+	    else dy*=-1;
 	  }
 	if (minIndex==2) 
 	  {
-	    minus=1;
+	    minus=-1;
 	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	    else if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))<0) dy*=-1;
-	    else {dx*=-1; dy*=1;}
+	    else dy*=-1;
 	  }
 	if (minIndex==3) 
 	  {
-	    minus=-1;
+	    minus=1;
 	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	    else if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))<0) dy*=-1;
-	    else {dx*=1; dy*=-1;}
+	    else dy*=-1;
 	  }
 	
 	

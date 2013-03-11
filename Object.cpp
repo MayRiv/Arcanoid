@@ -1,7 +1,7 @@
 #include "Object.h"
 #include <GL/glut.h>
 #include "globalVariables.h"
-Object::Object(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _leftLowX,int _leftLowY,int _rightLowX,int _rightLowY)
+Object::Object(int _leftTopX,int _leftTopY, int _rightTopX, int _rightTopY,int _rightLowX,int _rightLowY,int _leftLowX,int _leftLowY)
 {
   points[0].x=_leftTopX;
   points[0].y=_leftTopY;
@@ -20,8 +20,8 @@ void Object::draw(int visible)
       glBegin(GL_QUADS);
       glVertex2f(points[0].x,points[0].y);
       glVertex2f(points[1].x,points[1].y);
-      glVertex2f(points[3].x,points[3].y);  //SMTH wrong!
-      glVertex2f(points[2].x,points[2].y);
+      glVertex2f(points[2].x,points[2].y);  //SMTH wrong!
+      glVertex2f(points[3].x,points[3].y);
       //glVertex2f(points[0].x,points[0].y);
  /* glVertex2f(rightTopX,rightTopY);
       glVertex2f(leftLowX,leftLowY);
