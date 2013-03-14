@@ -42,28 +42,30 @@ bool Ball::ApplyPhysics(Object& object)
 	      min=sqrt( pow((points[i].x-object.getPointX(j)),2) + pow((points[i].y-object.getPointY(j)),2));
 	      minIndex=j;
 	    }
+
+	//maybe i should add mines in parentethes with y
 	if (minIndex==0) 
 	  {
 	    minus=1;
-	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointY(minIndex))))>0) dx*=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(object.getPointY(minIndex)-points[i].x)))>0) dx*=-1;
 	    else dy*=-1;
 	  }
 	if (minIndex==1) 
 	  {
 	    minus=-1;
-	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(object.getPointY(minIndex)-points[i].x)))>0) dx*=-1;
 	    else  dy*=-1;
 	  }
 	if (minIndex==2) 
 	  {
-	    minus=-1;
-	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>=0) dx*=-1;
+	    minus=1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(object.getPointY(minIndex)-points[i].x)))>0) dx*=-1;
 	    else    dy*=-1;
 	  }
 	if (minIndex==3) 
 	  {
-	    minus=1;
-	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
+	    minus=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(object.getPointY(minIndex)-points[i].x)))>=0) dx*=-1;
 	    else dy*=-1;
 	  }
 	
