@@ -21,7 +21,7 @@ void Ball::move()
   ApplyPhysics(player);
   /* if (points[0].x > player.getLeftLowX() && points[1].x < player.getRightLowX() && points[3].y > player.getLeftTopY()) dy*=-1; //also must be replaced by normal physics*/
 }
-
+//ADDED EXIT WITH CODE SAYING WHICH ANGLE GIVES IT WHEN VECT MUL RETURNES 0
 bool Ball::ApplyPhysics(Object& object)
 {
   bool touched=false;
@@ -42,31 +42,28 @@ bool Ball::ApplyPhysics(Object& object)
 	      min=sqrt( pow((points[i].x-object.getPointX(j)),2) + pow((points[i].y-object.getPointY(j)),2));
 	      minIndex=j;
 	    }
-	//	if  ( ((i%2)?-1: 1)*(points[i].x*object.getPointY(minIndex)-getPointX(minIndex)*points[i].x) >=0) dx*=(-1);
-	/*if ( ((minIndex%2)?1:1) * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	  else dy*=-1;*/
 	if (minIndex==0) 
 	  {
 	    minus=1;
-	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointY(minIndex))))>0) dx*=-1;
 	    else dy*=-1;
 	  }
 	if (minIndex==1) 
 	  {
 	    minus=-1;
-	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	    else dy*=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
+	    else  dy*=-1;
 	  }
 	if (minIndex==2) 
 	  {
 	    minus=-1;
-	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
-	    else dy*=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>=0) dx*=-1;
+	    else    dy*=-1;
 	  }
 	if (minIndex==3) 
 	  {
 	    minus=1;
-	    if ( minus * (dx*(points[i].x-object.getPointX(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
+	    if ( minus * (dx*(points[i].y-object.getPointY(minIndex)) - (dy*(points[i].x-object.getPointX(minIndex))))>0) dx*=-1;
 	    else dy*=-1;
 	  }
 	
